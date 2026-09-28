@@ -1,0 +1,171 @@
+/* ═══════════════════════════════════════════════════════════
+   Smart Financial Advisor – Stylesheet
+   Theme: White + Dark Green
+   ═══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --green-900: #064e3b;
+  --green-800: #065f46;
+  --green-700: #047857;
+  --green-600: #059669;
+  --green-500: #10b981;
+  --green-400: #34d399;
+  --green-300: #6ee7b7;
+  --green-200: #a7f3d0;
+  --green-100: #d1fae5;
+  --green-50:  #ecfdf5;
+  --white:     #ffffff;
+  --gray-50:   #f9fafb;
+  --gray-100:  #f3f4f6;
+  --gray-200:  #e5e7eb;
+  --gray-300:  #d1d5db;
+  --gray-400:  #9ca3af;
+  --gray-500:  #6b7280;
+  --gray-600:  #4b5563;
+  --gray-700:  #374151;
+  --gray-800:  #1f2937;
+  --gray-900:  #111827;
+  --red-500:   #ef4444;
+  --red-100:   #fee2e2;
+  --yellow-500:#f59e0b;
+  --yellow-100:#fef3c7;
+  --blue-500:  #3b82f6;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.08), 0 4px 6px -4px rgba(0,0,0,.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,.08), 0 8px 10px -6px rgba(0,0,0,.04);
+  --radius:    12px;
+  --radius-sm: 8px;
+  --transition: all .25s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Reset ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--gray-50);color:var(--gray-800);line-height:1.6;min-height:100vh}
+
+/* ── Navbar ── */
+.navbar{background:linear-gradient(135deg,var(--green-900),var(--green-700));padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(6,78,59,.25)}
+.navbar .brand{display:flex;align-items:center;gap:.75rem;color:var(--white);font-weight:700;font-size:1.25rem;text-decoration:none}
+.navbar .brand svg{width:28px;height:28px}
+.navbar .nav-tag{background:rgba(255,255,255,.15);color:var(--green-200);padding:.25rem .75rem;border-radius:20px;font-size:.75rem;font-weight:500;backdrop-filter:blur(4px)}
+
+/* ── Container ── */
+.container{max-width:1200px;margin:0 auto;padding:2rem 1.5rem}
+
+/* ── Hero Section ── */
+.hero{text-align:center;padding:3rem 1rem 2rem}
+.hero h1{font-size:2.25rem;font-weight:800;color:var(--green-900);margin-bottom:.5rem}
+.hero p{color:var(--gray-500);font-size:1.05rem;max-width:600px;margin:0 auto}
+
+/* ── Cards ── */
+.card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-md);border:1px solid var(--gray-200);overflow:hidden;transition:var(--transition)}
+.card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.card-header{padding:1.25rem 1.5rem;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;gap:.75rem}
+.card-header h2{font-size:1.1rem;font-weight:700;color:var(--green-900)}
+.card-header .icon{width:36px;height:36px;border-radius:var(--radius-sm);background:var(--green-50);display:flex;align-items:center;justify-content:center;color:var(--green-600);font-size:1.1rem}
+.card-body{padding:1.5rem}
+
+/* ── Form Styles ── */
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-group label{font-size:.85rem;font-weight:600;color:var(--gray-700)}
+.form-group label .req{color:var(--red-500)}
+.form-group input,.form-group select{padding:.7rem 1rem;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);font-size:.95rem;font-family:inherit;color:var(--gray-800);background:var(--white);transition:var(--transition);outline:none}
+.form-group input:focus,.form-group select:focus{border-color:var(--green-500);box-shadow:0 0 0 3px rgba(16,185,129,.15)}
+.form-group input::placeholder{color:var(--gray-400)}
+.form-group small{color:var(--gray-400);font-size:.78rem}
+.input-group{position:relative}
+.input-group .prefix{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gray-400);font-size:.85rem;font-weight:600}
+.input-group input{padding-left:3rem}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 2rem;border:none;border-radius:var(--radius-sm);font-size:.95rem;font-weight:600;font-family:inherit;cursor:pointer;transition:var(--transition);text-decoration:none}
+.btn-primary{background:linear-gradient(135deg,var(--green-700),var(--green-600));color:var(--white);box-shadow:0 4px 14px rgba(5,150,105,.3)}
+.btn-primary:hover{background:linear-gradient(135deg,var(--green-800),var(--green-700));transform:translateY(-1px);box-shadow:0 6px 20px rgba(5,150,105,.4)}
+.btn-outline{background:transparent;color:var(--green-700);border:2px solid var(--green-300)}
+.btn-outline:hover{background:var(--green-50);border-color:var(--green-500)}
+.btn-block{width:100%}
+.form-actions{display:flex;gap:1rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+
+/* ── Section Titles ── */
+.section-title{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+.section-title h2{font-size:1.5rem;font-weight:700;color:var(--green-900)}
+.section-title .line{flex:1;height:2px;background:linear-gradient(90deg,var(--green-200),transparent)}
+
+/* ── Results Page ── */
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:2rem}
+.summary-stat{background:var(--white);padding:1.25rem;border-radius:var(--radius-sm);border:1px solid var(--gray-200);text-align:center;transition:var(--transition)}
+.summary-stat:hover{border-color:var(--green-300);box-shadow:var(--shadow-md)}
+.summary-stat .label{font-size:.78rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.summary-stat .value{font-size:1.4rem;font-weight:700;color:var(--green-800);margin-top:.25rem}
+.summary-stat .sub{font-size:.78rem;color:var(--gray-400);margin-top:.15rem}
+
+/* ── Advice Box ── */
+.advice-box{background:linear-gradient(135deg,var(--green-50),#f0fdf9);border:1px solid var(--green-200);border-radius:var(--radius);padding:1.5rem;margin-bottom:2rem}
+.advice-box h3{font-size:1.1rem;font-weight:700;color:var(--green-800);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.advice-item{padding:.6rem 0;border-bottom:1px solid var(--green-100);font-size:.92rem;color:var(--gray-700);line-height:1.5}
+.advice-item:last-child{border-bottom:none}
+
+/* ── Best Bank Banner ── */
+.best-bank-banner{background:linear-gradient(135deg,var(--green-800),var(--green-600));color:var(--white);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;box-shadow:0 8px 25px rgba(6,78,59,.25)}
+.best-bank-banner .trophy{font-size:3rem}
+.best-bank-banner h3{font-size:1.5rem;font-weight:700}
+.best-bank-banner p{opacity:.9;font-size:.95rem;margin-top:.25rem}
+.best-bank-banner .stats{display:flex;gap:2rem;margin-top:.75rem;flex-wrap:wrap}
+.best-bank-banner .stat-item{text-align:center}
+.best-bank-banner .stat-item .num{font-size:1.25rem;font-weight:700}
+.best-bank-banner .stat-item .lbl{font-size:.75rem;opacity:.8;text-transform:uppercase;letter-spacing:.5px}
+
+/* ── Risk Badge ── */
+.risk-badge{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:20px;font-size:.8rem;font-weight:600}
+.risk-low{background:#d1fae5;color:#065f46}
+.risk-medium{background:#fef3c7;color:#92400e}
+.risk-high{background:#fee2e2;color:#991b1b}
+
+/* ── Bank Comparison Table ── */
+.table-wrapper{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--gray-200);margin-bottom:2rem}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+thead{background:var(--green-900);color:var(--white)}
+th{padding:.85rem 1rem;text-align:left;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+td{padding:.75rem 1rem;border-bottom:1px solid var(--gray-100);white-space:nowrap}
+tbody tr{transition:var(--transition)}
+tbody tr:hover{background:var(--green-50)}
+tbody tr.best-row{background:var(--green-50);border-left:3px solid var(--green-500)}
+.best-tag{background:var(--green-500);color:var(--white);padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:600;margin-left:.5rem}
+
+/* ── Charts ── */
+.charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:1.5rem;margin-bottom:2rem}
+.chart-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--gray-200);padding:1.5rem;box-shadow:var(--shadow-sm)}
+.chart-card h3{font-size:1rem;font-weight:700;color:var(--green-900);margin-bottom:1rem;text-align:center}
+.chart-container{position:relative;width:100%;height:320px}
+
+/* ── Amortization ── */
+.amort-controls{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+.amort-controls select{padding:.5rem .75rem;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);font-family:inherit;font-size:.85rem}
+.amort-table-wrap{max-height:450px;overflow-y:auto;border-radius:var(--radius-sm);border:1px solid var(--gray-200)}
+.amort-table-wrap table{font-size:.82rem}
+.amort-table-wrap thead{position:sticky;top:0;z-index:1}
+
+/* ── Footer ── */
+.footer{text-align:center;padding:2rem 1rem;color:var(--gray-400);font-size:.82rem;border-top:1px solid var(--gray-200);margin-top:3rem}
+
+/* ── Animations ── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.animate-in{animation:fadeInUp .5s ease forwards;opacity:0}
+.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}.delay-4{animation-delay:.4s}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .hero h1{font-size:1.5rem}
+  .form-grid{grid-template-columns:1fr}
+  .charts-grid{grid-template-columns:1fr}
+  .best-bank-banner{flex-direction:column;text-align:center}
+  .best-bank-banner .stats{justify-content:center}
+  .navbar{padding:0 1rem}
+  .navbar .brand{font-size:1.05rem}
+  .container{padding:1rem}
+}
