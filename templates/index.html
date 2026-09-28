@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart Financial Advisor System – Find the best loan option from top Pakistani banks based on your financial situation.">
+  <title>Smart Financial Advisor System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Smart Financial Advisor
+    </a>
+    <span class="nav-tag">🇵🇰 Pakistan Edition</span>
+  </nav>
+
+  <div class="container">
+
+    <!-- ── Hero ── -->
+    <div class="hero animate-in">
+      <h1>Find Your Best Loan Option</h1>
+      <p>Enter your financial details below and our intelligent advisor will compare all major Pakistani banks to find the perfect loan for you.</p>
+    </div>
+
+    <!-- ── Input Form Card ── -->
+    <form action="/analyze" method="POST" id="advisorForm">
+      <div class="card animate-in delay-1" style="margin-bottom:2rem">
+        <div class="card-header">
+          <div class="icon">👤</div>
+          <h2>Personal Information</h2>
+        </div>
+        <div class="card-body">
+          <div class="form-grid">
+            <!-- Client Name -->
+            <div class="form-group">
+              <label>Client Name <span class="req">*</span></label>
+              <input type="text" name="client_name" id="client_name" placeholder="Enter your full name" required>
+            </div>
+            <!-- Job Type -->
+            <div class="form-group">
+              <label>Job Type <span class="req">*</span></label>
+              <select name="job_type" id="job_type" required>
+                <option value="" disabled selected>Select job type</option>
+                <option value="Salaried">Salaried</option>
+                <option value="Business">Business Owner</option>
+                <option value="Student">Student</option>
+                <option value="Freelancer">Freelancer</option>
+              </select>
+            </div>
+            <!-- Monthly Income -->
+            <div class="form-group">
+              <label>Monthly Income <span class="req">*</span></label>
+              <div class="input-group">
+                <span class="prefix">PKR</span>
+                <input type="number" name="monthly_income" id="monthly_income" placeholder="e.g. 80000" min="0" required>
+              </div>
+            </div>
+            <!-- Monthly Expenses -->
+            <div class="form-group">
+              <label>Monthly Expenses <span class="req">*</span></label>
+              <div class="input-group">
+                <span class="prefix">PKR</span>
+                <input type="number" name="monthly_expenses" id="monthly_expenses" placeholder="e.g. 45000" min="0" required>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card animate-in delay-2" style="margin-bottom:2rem">
+        <div class="card-header">
+          <div class="icon">🏦</div>
+          <h2>Loan Details</h2>
+        </div>
+        <div class="card-body">
+          <div class="form-grid">
+            <!-- Loan Purpose -->
+            <div class="form-group">
+              <label>Loan Purpose <span class="req">*</span></label>
+              <select name="loan_purpose" id="loan_purpose" required>
+                <option value="" disabled selected>Select purpose</option>
+                <option value="Car">🚗 Car</option>
+                <option value="Bike">🏍️ Bike</option>
+                <option value="House">🏠 House</option>
+                <option value="Business">💼 Business</option>
+                <option value="Education">🎓 Education</option>
+              </select>
+            </div>
+            <!-- Loan Amount -->
+            <div class="form-group">
+              <label>Loan Amount <span class="req">*</span></label>
+              <div class="input-group">
+                <span class="prefix">PKR</span>
+                <input type="number" name="loan_amount" id="loan_amount" placeholder="e.g. 2000000" min="10000" required>
+              </div>
+            </div>
+            <!-- Loan Duration -->
+            <div class="form-group">
+              <label>Loan Duration (Years) <span class="req">*</span></label>
+              <select name="duration_years" id="duration_years" required>
+                <option value="" disabled selected>Select duration</option>
+                <option value="1">1 Year</option>
+                <option value="2">2 Years</option>
+                <option value="3">3 Years</option>
+                <option value="5">5 Years</option>
+                <option value="7">7 Years</option>
+                <option value="10">10 Years</option>
+                <option value="15">15 Years</option>
+                <option value="20">20 Years</option>
+                <option value="25">25 Years</option>
+              </select>
+            </div>
+            <!-- Monthly Repayment Capability -->
+            <div class="form-group">
+              <label>Monthly Repayment Capability <span class="req">*</span></label>
+              <div class="input-group">
+                <span class="prefix">PKR</span>
+                <input type="number" name="repayment_capability" id="repayment_capability" placeholder="e.g. 30000" min="0" required>
+              </div>
+              <small>How much can you afford to pay each month?</small>
+            </div>
+            <!-- Banking Preference -->
+            <div class="form-group">
+              <label>Banking Preference <span class="req">*</span></label>
+              <select name="banking_preference" id="banking_preference" required>
+                <option value="Both">Both (Islamic & Conventional)</option>
+                <option value="Islamic">Islamic Banking Only</option>
+                <option value="Conventional">Conventional Banking Only</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Submit ── -->
+      <div class="form-actions animate-in delay-3">
+        <button type="submit" class="btn btn-primary" id="analyzeBtn">
+          🔍 Analyze & Find Best Loan
+        </button>
+        <button type="reset" class="btn btn-outline">
+          ↩ Reset Form
+        </button>
+      </div>
+    </form>
+
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <p>Smart Financial Advisor System &copy; 2026 &bull; Built with Flask &bull; For educational purposes only</p>
+    <p style="margin-top:.25rem">Rates shown are illustrative and may differ from actual bank rates.</p>
+  </footer>
+
+  <script>
+    // Basic client-side validation feedback
+    document.getElementById('advisorForm').addEventListener('submit', function(e) {
+      const income = parseFloat(document.getElementById('monthly_income').value) || 0;
+      const expenses = parseFloat(document.getElementById('monthly_expenses').value) || 0;
+      if (expenses >= income) {
+        if (!confirm('Your expenses are equal to or exceed your income. Continue anyway?')) {
+          e.preventDefault();
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
